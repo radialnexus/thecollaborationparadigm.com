@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Collaboration Paradigm</title>
+<meta name="description" content="We don't use AI. We collaborate. A discipline for how intelligence — human and machine — participates in a shared space. Transactional to collaborative; relationships first-class; the graph that runs.">
+<style>
+  :root{
+    --bg:#0e0f15; --panel:#15161f; --panel2:#1a1b27; --ink:#ecedf2; --mut:#9a9db0;
+    --acc:#a78bfa; --acc2:#5fe3d0; --line:#262838; --maxw:900px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:
+        radial-gradient(1200px 620px at 80% -14%, #241d40 0%, transparent 60%),
+        radial-gradient(900px 520px at 4% 2%, #10242a 0%, transparent 58%), var(--bg);
+       color:var(--ink);font:17px/1.65 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+      background:rgba(14,15,21,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:58px}
+  nav .brand{font-weight:800;font-size:15px;letter-spacing:.2px}
+  nav .brand .dot{color:var(--acc)}
+  nav .links{margin-left:auto;display:flex;gap:20px;font-size:14px}
+  nav .links a{color:var(--mut)} nav .links a:hover{color:var(--ink);text-decoration:none}
+  @media(max-width:640px){nav .links a:nth-child(-n+2){display:none}}
+  header.hero{padding:108px 0 66px;text-align:center}
+  .eyebrow{color:var(--acc2);font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
+  h1{font-size:clamp(40px,8vw,74px);line-height:1.02;margin:16px 0 0;letter-spacing:-1.5px;font-weight:850}
+  .tagline{font-size:clamp(22px,3.6vw,30px);color:var(--ink);font-weight:700;margin:18px 0 0}
+  .tagline .g{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{font-size:19px;color:#c5c7d4;max-width:640px;margin:20px auto 0}
+  .lede b{color:var(--ink)}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;justify-content:center}
+  .btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:650;font-size:15px;border:1px solid transparent}
+  .btn.primary{background:linear-gradient(180deg,#b39bff,#8f6df0);color:#0c0820;border-color:#8f6df0}
+  .btn.ghost{border-color:var(--line);color:var(--ink);background:var(--panel)}
+  .btn:hover{text-decoration:none;filter:brightness(1.07)}
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  .kicker{color:var(--acc2);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin:0}
+  h2{font-size:clamp(24px,3.4vw,32px);margin:8px 0 0;letter-spacing:-.4px;font-weight:770}
+  section p{color:#c6c8d5;max-width:680px} section p b{color:var(--ink)}
+  .reframe{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 0;max-width:700px}
+  @media(max-width:620px){.reframe{grid-template-columns:1fr}}
+  .reframe .col{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:18px}
+  .reframe .col h4{margin:0 0 8px;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+  .reframe .t h4{color:var(--mut)} .reframe .c h4{color:var(--acc2)}
+  .reframe .col p{margin:0;font-size:14.5px;color:var(--mut);max-width:none}
+  .quote{font-size:clamp(21px,3vw,27px);font-weight:700;color:var(--ink);max-width:720px;line-height:1.35;letter-spacing:-.3px}
+  .quote .g{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .stack{margin:26px 0 0;max-width:760px}
+  .layer{display:flex;align-items:center;gap:16px;padding:13px 18px;border:1px solid var(--line);border-radius:12px;margin:0 auto 10px;
+         background:linear-gradient(180deg,var(--panel2),var(--panel))}
+  .layer .n{font-weight:750;color:var(--ink);font-size:16px}
+  .layer .q{margin-left:auto;color:var(--acc2);font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;white-space:nowrap}
+  .layer.top{background:linear-gradient(180deg,#241d40,#1a1530);border-color:#3a2f5e}
+  .ops{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 0}
+  @media(max-width:720px){.ops{grid-template-columns:repeat(2,1fr)}}
+  .op{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:16px 14px}
+  .op h3{margin:0;font-size:16px;color:var(--ink)} .op p{margin:6px 0 0;font-size:13px;color:var(--mut);max-width:none}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .card h3{margin:0 0 8px;font-size:16.5px;color:var(--ink)} .card p{font-size:14.5px;color:var(--mut);margin:0;max-width:none}
+  .card .more{display:inline-block;margin-top:10px;font-size:13px;color:var(--acc)}
+  .note{color:var(--mut);font-size:13.5px;font-style:italic;margin-top:18px}
+  footer{border-top:1px solid var(--line);padding:44px 0 74px;color:var(--mut);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">The Collaboration<span class="dot">·</span>Paradigm</div>
+  <div class="links">
+    <a href="#shift">The Shift</a>
+    <a href="#hierarchy">The Discipline</a>
+    <a href="#calculus">The Calculus</a>
+    <a href="https://theintelligentgraph.com">The Realization ↗</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">A discipline for human–AI collaboration</div>
+  <h1>The Collaboration Paradigm</h1>
+  <div class="tagline">We don't <span class="g">use</span> AI. We <span class="g">collaborate</span>.</div>
+  <p class="lede">Today we treat AI as an oracle — prompt in, answer out. The shift that matters is
+    treating it as a <b>place we inhabit together</b>: intelligence, of more than one kind,
+    participating in a shared space that <b>accrues</b>. Once you have the word, you can't un-see
+    its absence.</p>
+  <div class="cta">
+    <a class="btn primary" href="#shift">See the shift</a>
+    <a class="btn ghost" href="https://theintelligentgraph.com">The realization →</a>
+  </div>
+</div></header>
+
+<section id="shift"><div class="wrap">
+  <p class="kicker">The shift</p>
+  <h2>From transaction to collaboration.</h2>
+  <p>The prevailing relationship to AI is <b>transactional</b>: the model as vending machine. Each
+    exchange is isolated, stateless, consumed — nothing accrues, no one participates. The
+    Collaboration Paradigm reframes it as <b>collaborative</b>: a shared space where people, models,
+    agents, and whole organizations work <i>with</i> one another, and the engagement compounds.</p>
+  <div class="reframe">
+    <div class="col t"><h4>Transactional</h4><p>prompt → answer · the model as oracle · stateless · you query a tool</p></div>
+    <div class="col c"><h4>Collaborative</h4><p>participate in a shared space · it accrues · everyone a Participant · a place you inhabit</p></div>
+  </div>
+</div></section>
+
+<section id="keystone"><div class="wrap">
+  <p class="kicker">The keystone</p>
+  <p class="quote">Collaboration is, at bottom, about <span class="g">relationships</span>.</p>
+  <p style="margin-top:18px">Which is not a slogan — it's a constraint. If collaboration is the essence, and
+    collaboration is relational, then the substrate underneath must hold the one thing collaboration is
+    made of. <b>Relationships must be first-class</b> — not edges between the "real" things, but
+    first-class things in their own right, carrying their own context: who asserted them, when, how
+    sure, under what scope. Everything else follows from that.</p>
+</div></section>
+
+<section id="hierarchy"><div class="wrap">
+  <p class="kicker">The discipline</p>
+  <h2>A paradigm, not a product.</h2>
+  <p>The discipline separates the enduring from the built. Everything above the realization defines
+    <i>how intelligence collaborates</i>; everything below is implementation, free to evolve.</p>
+  <div class="stack">
+    <div class="layer top"><span class="n">Collaboration Paradigm</span><span class="q">Why</span></div>
+    <div class="layer"><span class="n">Collaboration Space — the Universe</span><span class="q">Where</span></div>
+    <div class="layer"><span class="n">Intelligent Collaboration Protocol (ICP)</span><span class="q">How</span></div>
+    <div class="layer"><span class="n">Collaboration Calculus</span><span class="q">Which operations</span></div>
+    <div class="layer"><span class="n">Primitive Operators</span><span class="q">The verbs</span></div>
+    <div class="layer"><span class="n">The Intelligent Graph — the first realization</span><span class="q">Made real</span></div>
+  </div>
+</div></section>
+
+<section id="calculus"><div class="wrap">
+  <p class="kicker">The Calculus</p>
+  <h2>The verbs of collaboration.</h2>
+  <p>Like Lambda or Predicate Calculus, a minimal, composable set of primitive operations from which
+    sophisticated collaboration is built. They are recognizable to everyone — because they are how
+    people already work together.</p>
+  <div class="ops">
+    <div class="op"><h3>Reticulate</h3><p>weave observations into navigable structure; resolve identity</p></div>
+    <div class="op"><h3>Orient</h3><p>establish context and perspective; locate yourself</p></div>
+    <div class="op"><h3>Navigate</h3><p>discover paths; explore; reveal opportunity</p></div>
+    <div class="op"><h3>Negotiate</h3><p>resolve competing views; reach agreement</p></div>
+    <div class="op"><h3>Reason</h3><p>infer, synthesize, explain, decide</p></div>
+    <div class="op"><h3>Plan</h3><p>develop missions; compose activity</p></div>
+    <div class="op"><h3>Execute</h3><p>act; invoke contracts; produce real change</p></div>
+    <div class="op"><h3>Learn</h3><p>observe outcomes; improve — and begin again</p></div>
+  </div>
+  <p class="note">Higher-level services compose from these primitives. Several already run in the
+    first realization; others are the direction. We mark vision as vision.</p>
+</div></section>
+
+<section id="who"><div class="wrap">
+  <p class="kicker">Who &amp; where</p>
+  <h2>Participants inhabit a shared space.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Participant</h3>
+      <p>Not a "user." A Participant is <i>whoever inhabits the space</i>, regardless of substrate — a
+        person, an AI, an autonomous agent, a service, or a whole <b>organization</b>. None
+        privileged. Participation is the invariant.</p>
+    </div>
+    <div class="card">
+      <h3>The Collaboration Space</h3>
+      <p>Not a database. Not a graph. Not a platform. The conceptual space <i>within which</i>
+        collaboration becomes possible — where any representation may participate. RDF describes,
+        property graphs compute, <b>the graph executes</b>. The Space is the bridge, not a side.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="realization"><div class="wrap">
+  <p class="kicker">The realization</p>
+  <h2>The graph that doesn't just describe — it runs.</h2>
+  <p>Today, a graph is the agent's memory — state it queries. The next step is a graph that
+    <b>acts</b>: behavior that fires during traversal, so the structure isn't the notebook beside the
+    reasoner — it's a participant in the reasoning. When relationships are first-class <i>and</i>
+    executable, the graph stops describing the work and starts doing it.</p>
+  <p style="margin-top:14px">The paradigm is enduring; its implementations evolve. The first
+    realization is <b>The Intelligent Graph</b>, built in the open by RadialNexus.</p>
+  <div class="cta" style="justify-content:flex-start">
+    <a class="btn primary" href="https://theintelligentgraph.com">The Intelligent Graph →</a>
+    <a class="btn ghost" href="https://radialnexus.com">RadialNexus →</a>
+  </div>
+  <p class="note">Honest rider: the executable-graph step is the direction we build toward, not a
+    finished claim. The representation it stands on is solid; the same mathematics underlies both.</p>
+</div></section>
+
+<section id="join"><div class="wrap">
+  <p class="kicker">The invitation</p>
+  <h2>You're already in it. Now you have the word.</h2>
+  <p>You are already collaborating with these systems — clumsily, transactionally, starting from zero
+    each morning. The shift is to build the place where it accrues, and to give relationships the
+    first-class standing they were always owed. From a transaction to a place you participate in.</p>
+  <p style="margin-top:16px;font-size:18px;font-weight:650;color:var(--ink)">
+    <a href="mailto:me@michaelbauer.com">me@michaelbauer.com</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>© 2026 RadialNexus LLC · <span class="mono">thecollaborationparadigm.com</span></div>
+  <div><a href="https://theintelligentgraph.com">The Intelligent Graph</a> ·
+       <a href="https://radialnexus.com">RadialNexus</a> ·
+       <a href="https://michaelbauer.com">Michael Bauer</a></div>
+</div></footer>
+
+</body>
+</html>
